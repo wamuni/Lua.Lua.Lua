@@ -67,3 +67,10 @@ print(math.random())
 math.randomseed(os.time())
 print(math.random())
 print(os.time())
+
+print(math.random(10, 40))
+print(math.max(10, 12, 13, 45, 51, 1, 23, 23))
+print(math.min(10, 12, 13, 45, 51, 1, -23, 23))
+
+print(math.floor(3.14))
+print(math.ceil(3.14))
