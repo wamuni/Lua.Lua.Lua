@@ -58,3 +58,12 @@ print(type(what_type)) -- nil
 local str = '22'
 print(type(str))
 print(type(tonumber(str))) --tonumber method, return a number extra from string, or nil if it's a invalid number string like 22a
+
+print(2 ^ 4) -- return number, float
+print( 5 + 2 * 10 / 2)
+print(math.pi)
+print(math.random())
+print(math.random())
+math.randomseed(os.time())
+print(math.random())
+print(os.time())
