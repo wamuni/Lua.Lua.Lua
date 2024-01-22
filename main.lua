@@ -54,3 +54,7 @@ what_type = false
 print(type(what_type)) -- boolean
 what_type = nil
 print(type(what_type)) -- nil
+
+local str = '22'
+print(type(str))
+print(type(tonumber(str))) --tonumber method, return a number extra from string, or nil if it's a invalid number string like 22a
