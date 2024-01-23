@@ -190,3 +190,20 @@ while peeps > 0 do -- thoerically infinite loop
     print("peeps:", peeps)
     peeps = peeps - 1
 end
+
+local runtime = 0
+local run = true
+
+while run do
+    print("running")
+    if runtime == 10 then
+        run = false
+    end
+    runtime = runtime + 1
+end
+
+local x = 1
+repeat -- at least execute once
+    print("Hey There!", x)
+    x = x + 1
+until x > 10
