@@ -123,11 +123,28 @@ end
     ~= !! this is special equal
 ]]
 
-local age = 32
+local age = 2
 if age >= 17 and age < 60 then
     print("You may enter")
 end
 
 if (age > 14) or (age < 54) then
     print("You may enter with or")
+end
+
+local name = "Tom"
+if (name == "Tom") and age == 32 then
+    print("You are the right one")
+end
+
+if not (age < 18) then -- has to use ()
+    print("You may not enter")
+end
+
+if age > 20 then
+    print("You're old")
+elseif age < 10 then
+    print("You're too young")
+else
+    print("You're young")
 end
