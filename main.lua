@@ -148,3 +148,18 @@ elseif age < 10 then
 else
     print("You're young")
 end
+
+if type(age) == "number" then
+    print("Age is a number value")
+end
+
+-- ternery operation
+-- local old = false
+-- if age > 30 then
+--     old = true
+-- end
+
+-- print(old)
+
+local old = (age > 30) and true or false
+print(old)
