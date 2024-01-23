@@ -207,3 +207,23 @@ repeat -- at least execute once
     print("Hey There!", x)
     x = x + 1
 until x > 10
+
+-- User Input
+print("What is 10 + 5?")
+local user_input = io.read()
+print("\nYour Answer: "..user_input)
+
+io.write("Input 10 + 5: ")
+local ans = io.read()
+print("\nYour answer: ".. ans)
+
+local num1, num2 = 10, 5
+local true_ans = num1 + num2
+io.write("Input ".. num1 .. " + " .. num2 .. " : ")
+ans = io.read()
+
+if tonumber(ans) == true_ans then
+    print("You are correct")
+else
+    print("Your answer, "..ans.." is not correct")
+end
