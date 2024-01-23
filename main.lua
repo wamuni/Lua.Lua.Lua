@@ -55,6 +55,8 @@ print(type(what_type)) -- boolean
 what_type = nil
 print(type(what_type)) -- nil
 
+
+-- Math in Lua
 local str = '22'
 print(type(str))
 print(type(tonumber(str))) --tonumber method, return a number extra from string, or nil if it's a invalid number string like 22a
@@ -69,8 +71,63 @@ print(math.random())
 print(os.time())
 
 print(math.random(10, 40))
-print(math.max(10, 12, 13, 45, 51, 1, 23, 23))
-print(math.min(10, 12, 13, 45, 51, 1, -23, 23))
+print(math.max(10, 12, 13, 45, 51, 1, 23, 23)) -- 51
+print(math.min(10, 12, 13, 45, 51, 1, -23, 23)) -- -23
 
-print(math.floor(3.14))
-print(math.ceil(3.14))
+print(math.floor(3.14)) -- 3
+print(math.ceil(3.14)) -- 4
+
+
+-- String in Lua
+local strin = "hello world!" 
+print(#strin) -- 11
+print(strin.." hello hello")
+local strin_number = 22
+local strin_number_tostring = tostring(strin_number)
+print(type(strin_number), type(strin_number_tostring))
+
+print("Hello\nWorld!\vI am Eddie\v I am here to save the world") -- print to next line and start from the end of last line
+
+local str_l = "Hello World"
+print(string.lower(str_l)) -- hello world
+print(string.upper(str_l)) -- HELLO WORLD
+print(string.len(str_l)) -- return the length of the string
+
+print(string.sub(str_l, 7))
+print(string.char(65))
+print(string.byte("a"))
+print(string.byte(str_l, 7, 99)) -- has to specify the last parameter
+
+print(string.rep("Hello!", 10, ",")) -- repeat 10 times with , in between
+print(string.format("pi: %.2f\nMy age: %i", math.pi, 27)) -- format string
+
+print(string.find(str_l, "orl")) -- return the range of index
+print(string.match(str_l, "orld"))
+
+local begin, ending = string.find(str_l, "orl")
+print("Begin: "..begin.."\nEnd: "..ending)
+print(string.gsub(str_l, "o", "!")) -- replace the char with another one, return the replaced string, and how many characters has been changed
+print(string.gsub(str_l, "l", "HAPPY FACE"))
+
+
+-- IF STATEMENT in Lua
+
+if false then
+    print("Statement was true")
+end
+--[[
+    >
+    <
+    <=
+    >=
+    ~= !! this is special equal
+]]
+
+local age = 32
+if age >= 17 and age < 60 then
+    print("You may enter")
+end
+
+if (age > 14) or (age < 54) then
+    print("You may enter with or")
+end
