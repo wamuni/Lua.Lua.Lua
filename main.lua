@@ -163,3 +163,30 @@ end
 
 local old = (age > 30) and true or false
 print(old)
+
+-- Loop in Lua
+-- count backwards
+for i = 10, 1, -1 do
+    print(i) -- 10, 9, 8, 7...1
+end
+
+-- count forwards
+for i = 1, 10, 2 do
+    print(i) -- 1, 3, 5, 7, 9
+end
+
+local start_val, end_val, step_val = 1, 10, 1
+for i = start_val, end_val, step_val do
+    print("using start_val, end_val && step_val "..i)
+end
+
+local arr = {2, 3, 4, 23, 422, 544, 24}
+for i = 1, #arr, 1 do
+    print(arr[i])
+end
+
+local peeps = 10
+while peeps > 0 do -- thoerically infinite loop
+    print("peeps:", peeps)
+    peeps = peeps - 1
+end
