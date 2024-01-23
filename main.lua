@@ -227,3 +227,39 @@ if tonumber(ans) == true_ans then
 else
     print("Your answer, "..ans.." is not correct")
 end
+
+-- table in lua
+local arr_n = {10, true, "hello world", 2.4}
+print(arr_n) -- only print the location in memory
+print(arr_n[1]) -- index starts from 1
+
+for i = 1, #arr_n do
+    print(type(arr_n[i]).." : "..tostring(arr_n[i]))
+end
+
+local arr_r = {1, 314, 43, 123, 341, 2,  4, 3,1}
+table.sort(arr_r)
+
+
+table.insert(arr_r, #arr_r, "hello")
+for i = 1, #arr_r do
+    print(arr_r[i])
+end
+
+local arr_s = {"Hello", "World", "I", "am", "here"}
+print(table.concat(arr_s, ","))
+
+local arr_arr = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {9, 99, 999}
+}
+
+print(arr_arr[1]) -- address of the table inside of the table
+print(arr_arr[1][1])
+
+for i = 1, #arr_arr do 
+    for j = 1, #arr_arr[i] do
+        print(arr_arr[i][j])
+    end
+end
