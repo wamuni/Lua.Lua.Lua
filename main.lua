@@ -210,23 +210,23 @@ until x > 10
 
 -- User Input
 print("What is 10 + 5?")
-local user_input = io.read()
-print("\nYour Answer: "..user_input)
+-- local user_input = io.read()
+-- print("\nYour Answer: "..user_input)
 
-io.write("Input 10 + 5: ")
-local ans = io.read()
-print("\nYour answer: ".. ans)
+-- io.write("Input 10 + 5: ")
+-- local ans = io.read()
+-- print("\nYour answer: ".. ans)
 
 local num1, num2 = 10, 5
 local true_ans = num1 + num2
-io.write("Input ".. num1 .. " + " .. num2 .. " : ")
-ans = io.read()
+-- io.write("Input ".. num1 .. " + " .. num2 .. " : ")
+-- ans = io.read()
 
-if tonumber(ans) == true_ans then
-    print("You are correct")
-else
-    print("Your answer, "..ans.." is not correct")
-end
+-- if tonumber(ans) == true_ans then
+    -- print("You are correct")
+-- else
+    -- print("Your answer, "..ans.." is not correct")
+-- end
 
 -- table in lua
 local arr_n = {10, true, "hello world", 2.4}
@@ -263,3 +263,47 @@ for i = 1, #arr_arr do
         print(arr_arr[i][j])
     end
 end
+
+-- Function
+
+local function display_age(age)
+    age = age or 5
+    print("You're "..age.." years old")
+    print("You will be "..age + 2 .. " years old in 2 years")
+    print("You were "..age-1 .." years old last year")
+end
+
+display_age(3)
+display_age(4)
+display_age(15)
+display_age()
+
+local function sum(num1, num2)
+    return num1 + num2
+end
+
+print(sum(1,2))
+
+local add10 = function(number)
+    local outcome = 10 + number
+    return number, outcome
+end
+
+local stored, output = add10(4)
+print(stored.." had 10 added to it: "..output)
+print(add10(5))
+
+-- to use recurse, it has to be function counter
+-- not counter = function()
+-- otherwise it won't work
+local function counter(number, end_num)
+    local count = number + 1
+    if count < end_num then
+        print(count)
+        return counter(count, end_num)
+    end
+    return count
+end
+
+print(counter(10, 15))
+
