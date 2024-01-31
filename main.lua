@@ -3,6 +3,8 @@
     this is 
     the multiple line comment
 ]]
+local start = os.clock()
+
 print("Hello Lua and World", "I'm cool") -- You can also put comment here
 print("Hello", "World", "!") -- use , to put tab between two world
 print("Hello".."World".."!") -- use .. to put them together, can have more arguments
@@ -441,8 +443,16 @@ print(
     )
 )
 
-print(os.getenv("HOME"))
-print(os.getenv("USER"))
+print(os.getenv("HOME")) -- same as echo $HOME
+print(os.getenv("USER")) -- same as echo $USER
 
 os.rename("append_file.txt", "renamed_append_file.txt")
 os.remove("renamed_append_file.txt")
+--os.execute("command") -- don't use it unless you don't have choice
+
+print(os.clock() - start)
+-- os.exit() will exit the program
+
+local mod = require("mymath") --import module
+print(mod.add(10, 2))
+print(mod.power(2,3))
