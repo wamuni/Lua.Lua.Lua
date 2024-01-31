@@ -440,3 +440,6 @@ print(
         )
     )
 )
+
+print(os.getenv("HOME"))
+print(os.getenv("USER"))
