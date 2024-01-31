@@ -371,5 +371,27 @@ end
 
 -- lua file
 io.output("lua_file.txt") -- used to create file, if the file exist, then replace the file
-io.write("Hello World")
+io.write("Hello World!")
 io.close()
+-- if we run it again, then it will over write it
+
+-- how to read the file
+io.input("lua_file.txt")
+local file = io.read(5) -- read 5 characters
+print(file)
+-- read number
+-- different way to create a file
+local read_file = io.open("read_number.txt", "w")
+read_file:write("88")
+read_file:close()
+io.input("read_number.txt")
+local num = io.read("*number")
+print(num)
+
+local test_create_file = io.open("test_create_file.txt", "w")
+test_create_file:write("Sccc")
+test_create_file:close()
+io.input("test_create_file.txt")
+local read_value = io.read(1000)
+print(read_value)
+
