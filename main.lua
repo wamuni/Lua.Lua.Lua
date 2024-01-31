@@ -443,3 +443,5 @@ print(
 
 print(os.getenv("HOME"))
 print(os.getenv("USER"))
+
+os.rename("append_file.txt", "renamed_append_file.txt")
