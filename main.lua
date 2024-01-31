@@ -307,3 +307,65 @@ end
 
 print(counter(10, 15))
 
+-- anonymous function
+local function counter()
+    local count = 0
+    return function()
+        count = count + 1
+        return count
+    end
+end
+
+-- varialbe count will be saved
+-- counter function itself returns a function
+-- therefore, x is also a function
+-- when trying to print count, we need to execute the function
+-- Question: why it can save value
+local x = counter()
+print(counter()()) -- can be also executed in this way
+print(x())
+print(x())
+print(x())
+print(x())
+print(x())
+print(x())
+print(x())
+
+local function sum(...) -- taking infinite amount of variables
+    local sums = 0
+    for key, value in pairs({...}) do
+        sums = sums + value
+    end
+    return sums
+end
+
+print(sum(1,2,3,4,5))
+
+-- co-routine
+local coroutine_1 = coroutine.create(
+    function()
+        for i = 1, 10, 1 do
+            print("coroutine 1 function: " ..i)
+            if i == 5 then
+                coroutine.yield()
+            end
+        end
+    end
+)
+
+local coroutine_function = function()
+    for i = 11, 20, 1 do
+        print("coroutine 2 function: "..i)
+    end
+end
+
+local coroutine_2 = coroutine.create(
+    coroutine_function -- function not function execution
+)
+coroutine.resume(coroutine_1)
+coroutine.resume(coroutine_2)
+
+if coroutine.status(coroutine_1) == "suspended" then
+    coroutine.resume(coroutine_1)
+end
+
