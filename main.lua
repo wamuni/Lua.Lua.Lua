@@ -369,3 +369,7 @@ if coroutine.status(coroutine_1) == "suspended" then
     coroutine.resume(coroutine_1)
 end
 
+-- lua file
+io.output("lua_file.txt") -- used to create file, if the file exist, then replace the file
+io.write("Hello World")
+io.close()
