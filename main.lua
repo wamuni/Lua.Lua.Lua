@@ -382,11 +382,12 @@ print(file)
 -- read number
 -- different way to create a file
 local read_file = io.open("read_number.txt", "w")
-read_file:write("88")
+read_file:write("88s") -- it will just read number
 read_file:close()
 io.input("read_number.txt")
-local num = io.read("*number")
-print(num)
+local num = io.read("*number") -- read it as a number
+print(type(num))
+print(num + 99)
 
 local test_create_file = io.open("test_create_file.txt", "w")
 test_create_file:write("Sccc")
@@ -395,3 +396,47 @@ io.input("test_create_file.txt")
 local read_value = io.read(1000)
 print(read_value)
 
+-- read the whole line
+local multi_line_file = io.open("multi_lines_file.txt", "w")
+multi_line_file:write("This is the first line\n")
+multi_line_file:write("This is the second line\n")
+multi_line_file:close()
+io.input("multi_lines_file.txt")
+print(io.read("*all"))
+print(io.read("*line"))
+print(io.read("*line"))
+
+-- append file
+local append_file = io.open("append_file.txt", "a")
+append_file:write("\nThis is first line of the file") -- this will keep append to the file everytime the file is executed
+append_file:close()
+
+local read_append_file = io.open("append_file.txt", 'r')
+local everything = read_append_file:read("a")
+print(everything)
+
+print(os.time()) -- since 1970
+print(os.time({
+    year = 2000,
+    month = 10,
+    day = 1,
+    hour = 14,
+    min = 20,
+    sec = 23
+})) -- seconds from 2000 Oct 1st 14:20:23
+
+print(
+    os.difftime( -- returns a integer
+        os.time(),
+        os.time(
+            {
+                year = 2000,
+                month = 10,
+                day = 1,
+                hour = 14,
+                min = 20,
+                sec = 23
+            }
+        )
+    )
+)
