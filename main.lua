@@ -456,3 +456,71 @@ print(os.clock() - start)
 local mod = require("mymath") --import module
 print(mod.add(10, 2))
 print(mod.power(2,3))
+
+-- oop in lua
+local t = {
+    name = "Eddie",
+    age = 27,
+    friends = {
+        "Shirley"
+    }
+}
+
+local function Pet(name)
+    return {
+        name = name or "Luis",
+        status = "hungry",
+        feed = function(self)
+            print(self.name .. " is fed")
+            self.status = "full"
+        end
+    }
+end
+
+local cat = Pet("this")
+print(cat.name)
+print(cat.status)
+cat:feed() -- need to use : to call the method
+print(cat.status)
+local dog = Pet()
+print(dog.name)
+print(dog.status)
+
+print(t.name)
+print(t.age)
+print(t.friends[1])
+
+-- inherits
+
+local function Dog(name, breed)
+    local dog = Pet(name) -- can be treated as normal object
+    dog.breed = breed
+    dog.loyalty = 0
+
+    dog.isLoyal = function(self)
+        return self.loyalty >= 10
+    end
+
+    dog.bark = function(self)
+        print("Woof Woof")
+    end
+
+    dog.feed = function(self)
+        print(name.." is fed")
+        self.status = "full"
+        self.loyalty = 10
+    end
+    return dog -- create a table and modify the table
+end
+
+local i = Dog("Doggy", "Poodle")
+print(i.breed)
+i:bark()
+print(i.status)
+i:feed()
+print(i.status)
+if i:isLoyal() then
+    print("Will protect against intruder")
+else
+    print("Will NOT protect against intruder")
+end
