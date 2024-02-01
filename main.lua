@@ -524,3 +524,38 @@ if i:isLoyal() then
 else
     print("Will NOT protect against intruder")
 end
+
+-- metatable
+local function addTableValues(x, y)
+    return x.num + y.num
+end
+
+local metatable = {
+    __add = addTableValues,
+    __sub = function(x, y)
+        return x.num - y.num
+    end
+}
+--[[
+    __add = +
+    __sub = -
+    __mul = *
+    __div = /
+    __mod = %
+    __pow = ^
+    __concat = ..
+    __len = #
+    __eq = ==
+    __lt = <
+    __le = <=
+]]
+
+local tbl1 = { num = 50 }
+local tbl2 = { num = 10 }
+
+setmetatable(tbl1, metatable)
+
+local ans = tbl1 + tbl2
+print(ans)
+ans = tbl1 - tbl2
+print(ans)
